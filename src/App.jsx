@@ -4,6 +4,11 @@ import { menuItems } from "./data";
 import { useState } from 'react';
 
 function App() {
+  const [menuItems, setmenuItems] =  useState(menuItems);
+
+  function updateItems(menuItemsId){
+    const updatedItems = [...menuItems];
+  }
   return (
     <div className="App">
       <Header />
