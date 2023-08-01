@@ -23,7 +23,10 @@ function App() {
         <aside>
           <table>
             <tr>
-              <td>image: {items.image}</td>
+              <td className="item-name">
+  <span>ITEM NAME</span> <br></br>
+  <span>Correct number of 🌶️, based on Spice level</span>
+</td>
               <td>Price</td>
               <td>Image</td>
             </tr>
