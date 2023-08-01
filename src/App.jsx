@@ -39,8 +39,7 @@ function App() {
           <div>
             <h2>Current Order</h2>
             <ul>
-            {currentOrder &&
-                currentOrder.map((item) => (
+            {currentOrder.map((item) => (
                   <li key={item.id}>{item.name}</li>
                 ))}
             </ul>
