@@ -1,13 +1,30 @@
 import Footer from "./Footer";
 import Header from "./Header";
+import { menuItems } from "./data";
+import { useState } from "react";
 
 function App() {
+    //  const [menuItems, setMenuItems] = useState(menuItems);
+
+  function addSpice(menuItems, index) {
+
+  }
   return (
     <div className="App">
       <Header />
       <main>
         <aside>
-          <table></table>
+          <table>
+            <tr>
+            <td>{ menuItems[0].image }</td>
+            <td className="item-name">
+  <span>{menuItems[0].name}</span> <br></br>
+  <span> {(&#128512) * menuItems[0].spiceLevel}</span>
+</td>
+            <td>{ menuItems[0].price }</td>
+            
+            </tr>
+          </table>
         </aside>
         <section>
           <div>
