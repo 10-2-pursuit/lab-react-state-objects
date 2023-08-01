@@ -15,7 +15,7 @@ export default function CurrentOrder({currentOrder, setCurrentOrder}){
             <h4>Total: ${currentOrder.reduce((total, item)=> total + item.price, 0)}</h4>
             <div>
               <button>Tidy order</button>
-              <button>Close order</button>
+              <button onClick={()=>closeOrder()}>Close order</button>
             </div>
         </div>
     )
@@ -24,5 +24,9 @@ export default function CurrentOrder({currentOrder, setCurrentOrder}){
         const addCurrentOrder = [...currentOrder];
         addCurrentOrder.splice(index,1);
         setCurrentOrder(addCurrentOrder);
+    }
+
+    function closeOrder(){
+        setCurrentOrder([]);
     }
 }

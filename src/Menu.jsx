@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import menuItems from './data.js';
 
 export default function Menu({currentOrder, setCurrentOrder}){
