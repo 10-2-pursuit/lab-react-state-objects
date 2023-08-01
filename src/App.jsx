@@ -1,6 +1,7 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import { menuItems } from "./data";
+import { useState } from 'react';
 
 function App() {
   return (
