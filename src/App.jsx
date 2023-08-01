@@ -31,7 +31,9 @@ function App() {
       <main>
         <aside>
           <table>
-            { itemList }
+            <tbody>
+              { itemList }
+            </tbody>
           </table>
         </aside>
         <section>
