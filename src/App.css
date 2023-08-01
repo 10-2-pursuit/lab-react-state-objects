@@ -41,7 +41,7 @@
   flex: 3;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align the item name and spice level to the start (left) */
+  align-items: flex-start;/
 }
 
 .current-order {

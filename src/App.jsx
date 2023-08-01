@@ -15,18 +15,20 @@ const App = () => {
     setTotalCost((prevTotal) => prevTotal + item.price);
   };
 
-  const removeItemFromTidyOrder = (itemId) => {
-    const updatedOrder = currentOrder.map((item) => {
-      if (item.id === itemId && item.quantity > 1) {
-        return { ...item, quantity: item.quantity - 1 };
-      } else {
-        return item;
-      }
-    });
-  
-    setCurrentOrder(updatedOrder.filter((item) => item.quantity > 0));
+  const removeItemFromOrder = (itemId) => {
+    const itemToRemove = currentOrder.find((item) => item.id === itemId);
+    if (itemToRemove.quantity > 1) {
+      const updatedOrder = currentOrder.map((item) =>
+        item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
+      );
+      setCurrentOrder(updatedOrder);
+      setTotalCost((prevTotal) => prevTotal - itemToRemove.price);
+    } else {
+      const updatedOrder = currentOrder.filter((item) => item.id !== itemId);
+      setCurrentOrder(updatedOrder);
+      setTotalCost((prevTotal) => prevTotal - itemToRemove.price);
+    }
   };
-
 
   const closeOrder = () => {
     setCurrentOrder([]);
@@ -49,13 +51,12 @@ const App = () => {
     setTidyOrder(true);
   };
 
-
   return (
     <div className="App">
       <Header />
 
       <div className="content">
-  
+        {/* Menu */}
         <div className="menu">
           <h2>Menu</h2>
           <table className="menu-table">
@@ -81,6 +82,7 @@ const App = () => {
           </table>
         </div>
 
+        {/* Current Order */}
         <div className="current-order">
           <h2>Current Order</h2>
           <button className="tidy-button" onClick={tidyCurrentOrder}>
