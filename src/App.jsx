@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Footer from './Footer';
 import Header from './Header';
-import MenuList from './MenuList'; 
+import MenuList from './menuList'; 
 import data from './data';
 
 function App() {
