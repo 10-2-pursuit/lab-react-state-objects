@@ -9,7 +9,7 @@ function App() {
   const [total, setTotal] = useState(0);
 
   const addToOrder = (menuItems) => {
-    setOrder((prevOrder) => [...prevOrder, menuItems]);
+    setOrder((prevItems) => [...prevItems, menuItems]);
     setTotal((prevTotal) => prevTotal + menuItems.price);
   }
 
@@ -40,7 +40,10 @@ function App() {
             <h2>Current Order</h2>
             <ul>
             {currentOrder.map((item) => (
-                  <li key={item.id}>{item.name}</li>
+                  <li key={item.id}>
+                    <button>Remove</button> 
+                    {item.name} ${item.price}
+                  </li>
                 ))}
             </ul>
             <h4>Total: ${total}</h4>
