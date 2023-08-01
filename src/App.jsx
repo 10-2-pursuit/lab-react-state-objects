@@ -17,6 +17,19 @@ function App() {
     setTotal(0)
   }
 
+  const removeItem = (itemId) => {
+    const filteredItem = currentOrder.findIndex((item) => item.id === itemId)
+    const deletedItem = currentOrder[filteredItem];
+
+    const newTotal = total - deletedItem.price;
+
+    const updateOrder = [...currentOrder]
+    updateOrder.splice(filteredItem, 1)
+
+    setTotal(newTotal)
+    setOrder(updateOrder)
+  }
+
   return (
     <div className="App">
       <Header />
@@ -25,7 +38,7 @@ function App() {
           <table>
             {menuItems.map((menu)=>{
               return (
-                <tr className={menu.name}>
+                <tr className={menu.name} >
                   <td>{menu.image}</td>
                   <td>
                     <span onClick={() => {addToOrder(menu)}}>{menu.name}</span> <br />
@@ -45,7 +58,7 @@ function App() {
             <ul>
             {currentOrder.map((item) => (
                   <li key={item.id}>
-                    <button>Remove</button> 
+                    <button onClick={()=> {removeItem(item.id)}}>Remove</button> 
                     {item.name} ${item.price}
                   </li>
                 ))}
