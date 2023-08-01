@@ -23,7 +23,7 @@ function App() {
         <aside>
           <table>
             <tr>
-              <td>image: {item.image}</td>
+              <td>image: {items.image}</td>
               <td>Price</td>
               <td>Image</td>
             </tr>
