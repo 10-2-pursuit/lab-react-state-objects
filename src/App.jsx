@@ -1,29 +1,32 @@
 import Footer from "./Footer";
 import Header from "./Header";
+import PastOrders from "./PastOrders";
+import { useState } from "react";
+import Menu from "./menu";
+import CurrentOrder from "./CurrentOrder";
 
 function App() {
+  let [currentOrder, setCurrentOrder] = useState([]);
+
   return (
     <div className="App">
       <Header />
       <main>
         <aside>
-          <table></table>
+          <table>
+            <tbody>
+              <Menu currentOrder={currentOrder} setCurrentOrder={setCurrentOrder}/>
+            </tbody>
+          </table>
         </aside>
         <section>
-          <div>
-            <h2>Current Order</h2>
-            <ul></ul>
-            <h4>Total:</h4>
-            <div>
-              <button>Tidy order</button>
-              <button>Close order</button>
-            </div>
-          </div>
+          <CurrentOrder currentOrder={currentOrder} setCurrentOrder={setCurrentOrder}/>
         </section>
       </main>
       <Footer />
     </div>
   );
 }
+
 
 export default App;
