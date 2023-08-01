@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import menuItems from './data.js';
 
-export default function Menu(){
+export default function Menu({currentOrder, setCurrentOrder}){
     let itemList = [];
     
     menuItems.forEach((menuItem)=> {
         itemList.push(
-            <tr key={ menuItem.id } onClick={ null }>
+            <tr key={ menuItem.id } onClick={ ()=>addCurrentOrder(menuItem) }>
                 <td>
                     { menuItem.image }
                 </td>
@@ -34,5 +34,9 @@ export default function Menu(){
         }
 
         return strSpiceIcon;
+    }
+
+    function addCurrentOrder(newItem){
+        setCurrentOrder([...currentOrder,newItem]);
     }
 }
