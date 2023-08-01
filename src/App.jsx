@@ -1,10 +1,17 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import { menuItems } from "./data";
+import  menuItems  from "./data";
 import { useState } from 'react';
+import ReactTable from "react-table";
+import './index.css';
 
 function App() {
-  const [menuItems, setmenuItems] =  useState(menuItems);
+  const [items, setItems] =  useState(menuItems);
+  console.log(menuItems)
+
+  function setMenuItems (){
+
+  }
 
   function updateItems(menuItemsId){
     const updatedItems = [...menuItems];
@@ -14,7 +21,13 @@ function App() {
       <Header />
       <main>
         <aside>
-          <table></table>
+          <table>
+            <tr>
+              <td>image: {item.image}</td>
+              <td>Price</td>
+              <td>Image</td>
+            </tr>
+          </table>
         </aside>
         <section>
           <div>
