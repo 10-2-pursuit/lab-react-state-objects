@@ -4,13 +4,17 @@ import menuItems from "./data";
 import { useState } from "react";
 
 function App() {
-  const [closeOrder, setClose] = useState(null);
   const [currentOrder, setOrder] = useState([]);
   const [total, setTotal] = useState(0);
 
   const addToOrder = (menuItems) => {
     setOrder((prevItems) => [...prevItems, menuItems]);
     setTotal((prevTotal) => prevTotal + menuItems.price);
+  }
+
+  const clearOrder = () => {
+    setOrder([]);
+    setTotal(0)
   }
 
   return (
@@ -49,7 +53,7 @@ function App() {
             <h4>Total: ${total}</h4>
             <div>
               <button>Tidy order</button>
-              <button>Close order</button>
+              <button onClick={() => {clearOrder()}}>Close order</button>
             </div>
           </div>
         </section>
