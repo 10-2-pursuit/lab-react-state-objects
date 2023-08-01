@@ -1,0 +1,111 @@
+/* App.css */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.menu {
+  flex: 1;
+  display: inline-block;
+}
+
+.menu h2 {
+  margin-bottom: 10px;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.menu-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.menu-table img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.item-details {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;/
+}
+
+.current-order {
+  flex: 1;
+  display: inline-block;
+}
+
+.current-order h2 {
+  margin-bottom: 10px;
+}
+
+.current-order button {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tidy-button {
+  margin: 0 auto; 
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.order-table td button {
+  color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+
+}
+
+
+footer {
+  background-color: #f9f9f9;
+  padding: 10px;
+  text-align: center;
+}
+
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
