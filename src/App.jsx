@@ -45,8 +45,6 @@ function App() {
                     <span>Spice level: {menu.spiceLevel}</span>
                   </td> 
                   <td>${menu.price}</td>
-                  {/* &#127798; */}
-                  {/* &#x1F336; */}
                 </tr>
               )
             })}
