@@ -13,6 +13,7 @@ function addToOrder (menuItem) {
 
 }
 
+
 function removeFromOrder (menuItem) {
 
 }
