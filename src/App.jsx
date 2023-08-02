@@ -6,15 +6,25 @@ import Header from "./Header";
 
 
 function App() {
-//  const [order, setOrder] = useState({})
-//  const [totalAmt, setTotalAmt] = useState(0);
+ const [order, setOrder] = useState([])
+ const [totalAmt, setTotalAmt] = useState(0);
 
 function addToOrder (menuItem) {
+  const menuOrder = {
+    name: menuItem.name,
+    price: menuItem.price,
+    id: menuOrder.length-1
+  }
+  setOrder([...order, menuOrder])
+  setTotalAmt([totalAmt + menuItem.price])
 
 }
 
 
-function removeFromOrder (menuItem) {
+function removeFromOrder ({id, price}) {
+  const removedOrders = order.filter((menuItem) => menuItem.id !== id)
+  setOrder(removedOrders)
+  setTotalAmt(totalAmt-price)
 
 }
 
@@ -44,7 +54,9 @@ function removeFromOrder (menuItem) {
         <section>
           <div>
             <h2>Current Order</h2>
-            <ul></ul>
+            <ul>
+              
+            </ul>
             <h4>Total:</h4>
             <div>
               <button>Tidy order</button>
