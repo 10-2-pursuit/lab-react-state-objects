@@ -13,10 +13,10 @@ function addToOrder (menuItem) {
   const menuOrder = {
     name: menuItem.name,
     price: menuItem.price,
-    id: menuOrder.length-1
+    id: order.length-1
   }
   setOrder([...order, menuOrder])
-  setTotalAmt([totalAmt + menuItem.price])
+  setTotalAmt(totalAmt + menuItem.price)
 
 }
 
@@ -37,7 +37,7 @@ function removeFromOrder ({id, price}) {
             <tbody>
               {menuItems.map((menuItem) => {
                 return (
-                  <tr key= {menuItem.id} onClick = {() =>addToOrder(item)}>
+                  <tr key= {menuItem.id} onClick = {() => addToOrder(menuItem)}>
                     <td>{menuItem.image}</td>
                     <td className="item-name">
                     <span>{menuItem.name}</span> <br></br> 
@@ -55,9 +55,17 @@ function removeFromOrder ({id, price}) {
           <div>
             <h2>Current Order</h2>
             <ul>
-              
+              {order.map((menuItem) => {
+                return (
+                  <li key= {menuItem.id}>
+                    <span onClick={()=> removeFromOrder(menuItem)}>❌</span>
+                    <span>{menuItem.name}</span>
+                    <span>{menuItem.price}</span>
+                  </li>
+                )
+              })}
             </ul>
-            <h4>Total:</h4>
+            <h4>Total: {totalAmt}</h4>
             <div>
               <button>Tidy order</button>
               <button>Close order</button>
