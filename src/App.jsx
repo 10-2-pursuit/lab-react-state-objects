@@ -1,4 +1,4 @@
-// import React from "react";
+import { useState } from "react";
 import Footer from "./Footer";
 import menuItems from "./data";
 import Header from "./Header";
@@ -6,10 +6,16 @@ import Header from "./Header";
 
 
 function App() {
-//  const [order, setOrder] = useState([]);
+//  const [order, setOrder] = useState({})
 //  const [totalAmt, setTotalAmt] = useState(0);
 
-//  function 
+function addToOrder (menuItem) {
+
+}
+
+function removeFromOrder (menuItem) {
+
+}
 
   return (
     <div className="App">
@@ -20,7 +26,7 @@ function App() {
             <tbody>
               {menuItems.map((menuItem) => {
                 return (
-                  <tr key= {menuItem.id} onClick = {() =>addOrder(item)}>
+                  <tr key= {menuItem.id} onClick = {() =>addToOrder(item)}>
                     <td>{menuItem.image}</td>
                     <td className="item-name">
                     <span>{menuItem.name}</span> <br></br> 
