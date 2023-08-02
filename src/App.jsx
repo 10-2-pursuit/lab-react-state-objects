@@ -1,13 +1,38 @@
+// import React from "react";
 import Footer from "./Footer";
+import menuItems from "./data";
 import Header from "./Header";
 
+
+
 function App() {
+//  const [order, setOrder] = useState([]);
+//  const [totalAmt, setTotalAmt] = useState(0);
+
+//  function 
+
   return (
     <div className="App">
       <Header />
       <main>
         <aside>
-          <table></table>
+          <table>
+            <tbody>
+              {menuItems.map((menuItem) => {
+                return (
+                  <tr key= {menuItem.id} onClick = {() =>addOrder(item)}>
+                    <td>{menuItem.image}</td>
+                    <td className="item-name">
+                    <span>{menuItem.name}</span> <br></br> 
+                    {/* line 26 ending --> this adds a line break */}
+                    <span>{"🌶️".repeat(menuItem.spiceLevel)}</span>
+                    </td>
+                    <td>{"$" + (menuItem.price)}</td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </aside>
         <section>
           <div>
