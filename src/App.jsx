@@ -56,7 +56,7 @@ function App() {
             <ul>
             {currentOrder.map((item) => (
                   <li key={item.id}>
-                    <button onClick={()=> {removeItem(item.id)}}>Remove</button> 
+                    <button onClick={()=> {removeItem(item.id)}}>❌</button> 
                     {item.name} ${item.price}
                   </li>
                 ))}
