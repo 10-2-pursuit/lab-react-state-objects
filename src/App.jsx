@@ -31,6 +31,13 @@ function App() {
     setTotal(newTotal)
     setOrder(updateOrder)
   }
+  const calculateTotal = () => {
+    let newTotal = 0;
+    currentOrder.forEach(item => {
+      newTotal += item.price;
+    });
+    setTotal(newTotal)
+  }
   return (
     <div className="App">
       <Header />
@@ -64,7 +71,7 @@ function App() {
             </ul>
             <h4>Total: ${total}</h4>
             <div>
-              <button>Tidy order</button>
+              <button onClick={() => {calculateTotal}}>Tidy order</button>
               <button onClick={() => {clearOrder()}}>Close order</button>
             </div>
           </div>
