@@ -71,7 +71,7 @@ function App() {
             </ul>
             <h4>Total: ${total}</h4>
             <div>
-              <button onClick={() => {calculateTotal}}>Tidy order</button>
+              <button onClick={() => {calculateTotal()}}>Tidy order</button>
               <button onClick={() => {clearOrder()}}>Close order</button>
             </div>
           </div>
