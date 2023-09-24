@@ -2,19 +2,34 @@ import Footer from "./Footer";
 import Header from "./Header";
 import  menuItems  from "./data";
 import { useState } from 'react';
-import ReactTable from "react-table";
+// import ReactTable from "react-table";
 import './index.css';
 
 function App() {
-  const [items, setItems] =  useState(menuItems);
-  console.log(menuItems)
+  const [currentOrder, setOrder] = useState([]);
+  const [total, setTotal] = useState(0);
 
-  function setMenuItems (){
-
+  const addToOrder = (menuItems) => {
+    setOrder((prevItems) => [...prevItems, menuItems]);
+    setTotal((prevTotal) => prevTotal + menuItems.price);
   }
 
-  function updateItems(menuItemsId){
-    const updatedItems = [...menuItems];
+  const clearOrder = () => {
+    setOrder([]);
+    setTotal(0)
+  }
+
+  const removeItem = (itemId) => {
+    const filteredItem = currentOrder.findIndex((item) => item.id === itemId)
+    const deletedItem = currentOrder[filteredItem];
+
+    const newTotal = total - deletedItem.price;
+
+    const updateOrder = [...currentOrder]
+    updateOrder.splice(filteredItem, 1)
+
+    setTotal(newTotal)
+    setOrder(updateOrder)
   }
   return (
     <div className="App">
