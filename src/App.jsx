@@ -37,24 +37,35 @@ function App() {
       <main>
         <aside>
           <table>
-            <tr>
-              <td className="item-name">
-  <span>ITEM NAME</span> <br></br>
-  <span>Correct number of 🌶️, based on Spice level</span>
-</td>
-              <td>Price</td>
-              <td>Image</td>
-            </tr>
+          {menuItems.map((menu)=>{
+              return (
+                <tr className={menu.name} >
+                  <td>{menu.image}</td>
+                  <td>
+                    <span onClick={() => {addToOrder(menu)}}>{menu.name}</span> <br />
+                    <span>Spice level: {menu.spiceLevel}</span>
+                  </td> 
+                  <td>${menu.price}</td>
+                </tr>
+              )
+            })}
           </table>
         </aside>
         <section>
           <div>
             <h2>Current Order</h2>
-            <ul></ul>
-            <h4>Total:</h4>
+           <ul>
+           {currentOrder.map((item) => (
+                  <li key={item.id}>
+                    <button onClick={()=> {removeItem(item.id)}}>❌</button> 
+                    {item.name} ${item.price}
+                  </li>
+                ))}
+            </ul>
+            <h4>Total: ${total}</h4>
             <div>
               <button>Tidy order</button>
-              <button>Close order</button>
+              <button onClick={() => {clearOrder()}}>Close order</button>
             </div>
           </div>
         </section>
