@@ -1,4 +1,4 @@
-const menuItems = [
+export const menuItems = [
   {
     id: "b6f3a550",
     name: "Curly Fries",
